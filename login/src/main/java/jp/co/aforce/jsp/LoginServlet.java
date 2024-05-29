@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jp.co.aforce.bean.Client;
 import jp.co.aforce.dao.ClientDAO;
-
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
     
@@ -25,17 +24,17 @@ public class LoginServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             session.setAttribute("error", "サーバーエラーが発生しました。");
-            response.sendRedirect("jsp/login-error.jsp");
+            response.sendRedirect(request.getContextPath() + "/jsp/login-error.jsp");
             return;
         }
         
         if (client != null) { 
             session.setAttribute("client", client); 
-            response.sendRedirect("jsp/login-out.jsp");
+            response.sendRedirect(request.getContextPath() + "/jsp/login-out.jsp");
         } else {
             session.setAttribute("error", "IDもしくはパスワードが違います");
             session.setAttribute("identity", identity); 
-            response.sendRedirect("jsp/login-error.jsp");
+            response.sendRedirect(request.getContextPath() + "/jsp/login-in.jsp");
         }
     }
 }
