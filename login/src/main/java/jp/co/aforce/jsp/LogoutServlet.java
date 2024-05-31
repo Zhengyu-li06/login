@@ -13,8 +13,6 @@ public class LogoutServlet extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
-        System.out.println("Session ID: " + session.getId());
-        System.out.println("Client Attribute: " + session.getAttribute("client"));
         
         if (session.getAttribute("client") != null) { 
             session.invalidate();

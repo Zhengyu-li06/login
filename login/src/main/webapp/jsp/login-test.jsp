@@ -6,4 +6,7 @@
 
 ${client.identity}さん。
 
+
+<p><a href="logout-in.jsp">ログアウトしますか？</a></p>
+
 <%@ include file="/footer.html"%>
